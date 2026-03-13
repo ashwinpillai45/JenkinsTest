@@ -16,9 +16,9 @@ total_disk=$( df -h | head -n 2 | tail -n 1| awk -F " " '{ print $1 }')
 use_per=$( df -h | head -n 2 | tail -n 1| awk -F " " '{ print $5 }' | tr -cd '[:digit:]' )
 free_per=$((100 - use_per))
 free_disk=$( df -h | head -n 2 | tail -n 1| awk -F " " '{ print $4 }')
-echo "Free Disk Space : $free_disk (${free_per}%))"
+echo "Free Disk Space : $free_disk (${free_per}%)"
 used_disk=$(df -h | head -n 2 | tail -n 1| awk -F " " '{ print $3 }')
-echo "Used Disk Space : $used_disk (${use_per}%))"
+echo "Used Disk Space : $used_disk (${use_per}%)"
 top_five_process_cpu=$(top | head -n 12 | tail -n 5 | awk -F " " '{ print $13 }')
 echo "Top 5 process by cpu usage:" 
 echo $top_five_process_cpu
